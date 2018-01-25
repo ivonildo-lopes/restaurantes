@@ -16,7 +16,7 @@ export class ShoppingCartService {
 
 
 
-  adicionarItem(item: MenuItem) {
+  addItem(item: MenuItem) {
                   //  verifica se o item que estou adicionandi ja existe
     let foundItem = this.items.find((mItem) => mItem.menuItem.id === item.id);
 
