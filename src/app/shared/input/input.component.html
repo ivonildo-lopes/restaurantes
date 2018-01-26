@@ -1,0 +1,12 @@
+<div class="form-group" [class.has-success]="iptAddress.valid && (iptAddress.dirty || iptAddress.touched)" [class.has-error]="!iptAddress.valid && (iptAddress.dirty || iptAddress.touched)">
+  <label class="control-label sr-only" for="inputSuccess">
+    <i class="fa fa-check"></i> Endereço</label>
+  <input type="text" class="form-control" id="inputSuccess" name="adress" #iptAddress="ngModel" autocomplete="off" minlength="5"
+    required ngModel placeholder="Endereço">
+  <span class="help-block" *ngIf="iptAddress.valid && (iptAddress.dirty || iptAddress.touched)">
+    <i class="fa fa-check"></i>
+    Ok</span>
+  <span class="help-block" *ngIf="!iptAddress.valid && (iptAddress.dirty || iptAddress.touched)">
+    <i class="fa fa-remove"></i>
+    Verifique o campo</span>
+</div>
