@@ -31,7 +31,7 @@
           <tr>
             <th>Total:</th>
 
-            <td class="text-right"> {{ total()}}</td>
+            <td class="text-right"> {{ total() | currency: 'BRL':true}}</td>
           </tr>
         </tbody>
       </table>
@@ -41,7 +41,7 @@
     <div class="pull-right">
       <button type="button" (click)="clear()" class="btn btn-danger">
         <i class="fa fa-trash"></i> Limpar</button>
-      <a href="order.html" class="btn btn-success">
+      <a [routerLink]="['/order']" class="btn btn-success">
         <i class="fa fa-credit-card"></i> Fechar Pedido</a>
     </div>
   </div>
