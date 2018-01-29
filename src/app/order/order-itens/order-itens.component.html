@@ -1,0 +1,40 @@
+<div class="col-sm-6 col-xs-12" *ngIf="!itensCarrinho" >
+  <p>
+    Não há itens no seu pedido
+  </p>
+</div> 
+
+<table class="table table-striped" *ngIf="itensCarrinho">
+  <thead>
+    <tr>
+      <th class="text-center">Quantidade</th>
+      <th>Item</th>
+      <th>Descrição</th>
+      <th class="text-right">Subtotal</th>
+      <th class="text-right"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of itensCarrinho">
+      <td class="text-center">
+        <a (click)="emitDecreaseQty(item)" class="btn btn-sm">
+          <i class="fa fa-minus"></i>
+        </a>
+        {{ item.quantity }}
+        <a (click)="emitIncreaseQty(item)" class="btn btn-sm">
+          <i class="fa fa-plus"></i>
+        </a>
+      </td>
+      <td>{{ item.menuItem.name }}</td>
+
+      <td>{{ item.menuItem.description }}</td>
+      <td class="text-right">{{ item.value() | currency: 'BRL': true }}</td>
+      <td class="text-right">
+        <a class="btn btn-sm danger" (click)="emitRemove(item)">
+          <i class="fa fa-remove"></i>
+        </a>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
