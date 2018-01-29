@@ -20,24 +20,19 @@
                 <p class="lead">Endereço de Entrega:</p>
               </div>
               <div class="col-sm-6 col-xs-12">
-                <mt-input></mt-input>
+                <mt-input-container errorMessage="Campo Obrigatorio e com 5 caracteres" label="Endereco">
+                  <input class="form-control" name="address" ngModel required minlength="5" placeholder="Endereço" autocomplete="off">
+                </mt-input-container>
               </div>
               <div class="col-sm-2 col-xs-6">
-                <div class="form-group" [class.has-success]="iptNumber.valid && (iptNumber.dirty || iptNumber.touched)"
-                                        [class.has-error]="!iptNumber.valid && (iptNumber.dirty || iptNumber.touched)" >
-                  <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Número</label>
-                  <input type="text" class="form-control" id="inputSuccess" name="number" #iptNumber="ngModel" ngModel required autocomplete="off" placeholder="Número">
-                  <span class="help-block" *ngIf="iptNumber.valid && (iptNumber.dirty || iptNumber.touched)" > 
-                      <i class="fa fa-check"></i> 
-                    Ok</span>
-                    <span class="help-block" *ngIf="!iptNumber.valid && (iptNumber.dirty || iptNumber.touched)" > 
-                        <i class="fa fa-remove"></i> 
-                      Verifique o campo</span>  
-                </div>
+                <mt-input-container errorMessage="Campo Obrigatório" label="Nº" >
+                    <input class="form-control" name="number" pattern="^[0-9]*$" ngModel required placeholder="Nº" autocomplete="off">
+                </mt-input-container>
+               
               </div>
               <div class="col-sm-4 col-xs-6">
                 <div class="form-group">
-                  <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Complemento</label>
+                  <!-- <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Complemento</label> -->
                   <input type="text" class="form-control" name="optional" ngModel  id="inputSuccess" placeholder="Complemento">
                   
                 </div>
